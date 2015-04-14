@@ -1,0 +1,36 @@
+.cfff {
+    color: #fff !important;
+}
+
+.cccc {
+    color: #ccc !important;
+}
+
+.c888 {
+    color: #888 !important;
+}
+
+.f32 {
+    font-size: 30px !important;
+}
+
+.f30 {
+    font-size: 30px !important;
+}
+
+.f24 {
+    font-size: 24px !important;
+}
+
+.f20 {
+    font-size: 20px !important;
+}
+
+.fborder {
+    text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333 !important; 
+}
+img.full {
+    width: 100%;
+    border: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Estructuras de Datos y Algoritmos II - Clase 1</title>
+
+    <meta name="Estructuras de Datos y Algoritmos II - Clase 1">
+    <meta name="author" content="Fernando Martínez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link href="/css/helpers.css"
+          
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h1>Estructuras de Datos y Algoritmos II</h1>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+	  <h3> Clase 1 </h3>
+	</section>
+
+	<section>
+	  <h2>Estructuras de Datos y Algoritmos II</h2>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+	  <h3> Clase 1 </h3>
+	</section>
+
+        
+        <section>
+          <h1>
+          ¿Por qué?
+          </h1>
+        </section>
+
+
+        <section>
+          <h2> Problema </h2>
+        </section>
+        
+        <section data-background-transition="zoom" data-background="/img/placard.jpg">
+          <h1 class="fragment" style="color: white"> El placard </h1>
+        </section>
+        
+        <section data-background-transition="fade" data-background="/img/placard3.jpg">
+          <h1 style="color: white" > El placard </h1>
+          <p class="fragment" style="color: white" > ¿qué pasa si tenemos sólo un estante, laaaaargo, pero que no entra mas de una prenda de alto ?</p>
+          <p class="fragment" style="color: white" > ¿y si la puerta es muy pequeña, y adentro hay un perchero giratorio? </p>
+          <p class="fragment" style="color: white" >condicionantes, requerimientos </p>
+        </section>
+
+        <section>
+          <h3>
+            ¿Qué es una estructura de datos?
+          </h3>
+        </section>
+                
+        <section>
+          <p class="f30">
+            ¿Qué es una estructura de datos?
+          </p>
+          
+          <blockquote>
+            &ldquo; Una estructura de datos es una forma particular de organizar la información en una computadora de manera tal que pueda se usada eficientemente. &rdquo;
+            <small> Paul E. Black - "Dictionary of Algorithms and Data Structures" </small>
+	  </blockquote>
+          
+          <blockquote>
+            &ldquo; Una estructura de datos es una forma de almacenar y organizar información para facilitar el acceso y las modificaciones.  &rdquo;
+            <small><br>[Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein] - "Introduction to algorithms"</small>
+	  </blockquote>
+          <small class="fragment"> Propiedades Reglas Restricciones </small>
+        </section>
+        
+        <section>
+          <p>
+            ¿Qué es un algoritmo?
+          </p>
+          
+          <blockquote cite="ibidem" class="fragment">
+            &ldquo; un algoritmo es un procedimiento computacional bien definido que toma un valor/es como entrada y produce un valor/es como salida. Es por lo tanto una secuencia de pasos que transforman una entrada en una salida. &rdquo;
+	  </blockquote>
+          <blockquote cite="ibidem" class="fragment">
+            &ldquo; También puede verse como una herramienta para resolver un problema computacional bien especificado. &rdquo;
+	  </blockquote>
+        </section>
+
+        <section>
+          <h1> ¿Por qué? </h1>
+        </section>
+        
+        <section>
+          <blockquote style="font-size: 30px">
+            &ldquo; frecuentemente tendremos que identificar y balancear las ventajas y desventajas acerca de una solución. Como científicos de la computación, además de nuestra habiliadad de resolver problemas, también necesitaremos conocer herramientas y técnicas para evaluar dichas soluciones. A la larga, generalemente existen muchas formas de resolver un problema determinado. Encontrar una solución y decidir si es una buena solución, son tareas que realizaremos una y otra vez. &rdquo;
+            <small>"Introduction to algorithms", Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein</small>
+          </blockquote>
+          
+          <blockquote class="fragment" style="font-size: 30px">
+            &ldquo; (...) No existe una estructura de datos que funcione bien para todos los propósitos, por lo tanto es importante conocer las fortalezas y limitaciones de varias de ellas. &rdquo;
+            
+            <small>ibidem</small>
+          </blockquote>
+        </section>
+
+        <section>
+          <p>
+            ¿Cómo determinamos qué estructura de datos y qué algoritmos son mejores para solucionar un problema determinado?
+          </p>
+          
+          <p>
+            No vamos a estudiar todas estructuras de datos y todos los tipos de algoritmos.
+            El propósito de la materia es construir herramientas conceptuales y prácticas que aporten a responder estas preguntas.
+          </p>
+        </section>
+        
+        <section>
+	  <h2>Estructuras de Datos y Algoritmos II</h2>
+	</section>
+
+
+        <section>
+          <p class="f24"> Profesores: </p>
+          <h3> Emanuel Borda </h3>
+          <h3> Fernando Martínez </h3>
+          <br>
+          <span class="f24"> Página:</span>
+          <p class="fragment">
+            <a href="http://edya2upe.github.io/"><h3> edya2upe.github.io </h3> </a>
+          </p>
+        </section>
+
+        
+        <section>
+          <h4>Temas y fechas</h4>
+
+          <table style="font-size: 24px">
+            <tr>
+              <th>Clase</th>
+	      <th>Día</th>
+	      <th>Tema</th>
+	      <th>Practica</th>
+            </tr>
+            <tr><td>1</td><td>  07/04/2015 </td><td>Listas</td><td>#1 Listas</td></tr>
+            <tr><td>2</td><td>  14/04/2015 </td><td>Arboles Binarios</td><td>#2 Arboles Binarios</td></tr>
+            <tr><td>3</td><td>  21/04/2015 </td><td>Arboles Generales</td><td>#3 Arboles Generales</td></tr>
+            <tr><td>4</td><td>  21/04/2015 </td><td>Arboles AVL</td><td>&nbsp;</td></tr>
+            <tr><td>5</td><td>  28/04/2015 </td><td>Tiempo de Ejecución</td><td>#4 Tiempo de Ejecución</td></tr>
+            <tr><td>6</td><td>  05/05/2015 </td><td>Tiempo de Ejecucion</td><td>&nbsp;</td></tr>
+            <tr><td>7</td><td>  12/05/2015 </td><td>Grafos</td><td>#5 Grafos</td></tr>
+            <tr><td>8</td><td>  19/05/2015 </td><td>Grafos</td><td>&nbsp;</td></tr>
+            <tr><td>9</td><td>  26/05/2015 </td><td>Consulta Parcial/ Clase repaso</td><td>&nbsp;</td></tr>
+            <tr><td>10</td><td> 02/06/2015 </td><td>Parcial 1era Fecha</td><td>&nbsp;</td></tr>
+            <tr><td>11</td><td> 09/06/2015 </td><td>Muestra Parcial y Consulta</td><td>&nbsp;</td></tr>
+            <tr><td>12</td><td> 16/06/2015 </td><td>1er Recuperatorio</td><td>&nbsp;</td></tr>
+            <tr><td>13</td><td> 23/06/2015 </td><td>Muestra 1er Rec y consulta</td><td>&nbsp;</td></tr>
+            <tr><td>14</td><td> 30/06/2015 </td><td>2do Recuperatorio</td><td>&nbsp;</td></tr>
+          </table>
+        </section>
+
+
+        <section>
+          <h1> Listas </h1>
+        </section>
+
+        <section>
+          <h2> Listas </h2>
+
+          <p>¿Qué es una lista? </p>
+        </section>
+
+        <section>
+          <h3> Definición </h3>
+
+          <blockquote>
+            Una lista es una coleccion de elementos donde cada uno mantiene una posicion relativa respecto a los otros. Es decir, entre los elementos que la componen existe una relación de orden (primero, segundo, tercero... último).
+            <br><br>
+Estructura lineal, tiene un principio y un final.
+          </blockquote>
+
+          <p class="fragment"> Es una estructura de datos simple que puede servir para construir otras estructuras de datos más complejas </p>
+        </section>
+
+        <section>
+          <img width="100%" data-src="/img/lista.png" >
+          <p class="fragment">
+            ¿Qué cosas podemos hacer con una lista?
+            <br><br>
+            ¿de que manera podemos acceder a qué datos?
+            <br><br>            
+            ¿Cómo la modificamos?
+          </p>
+        </section>
+
+
+        <section>
+          <h2> Operaciones sobre listas </h2>
+          <ul style="font-size: 24px">
+            <li>size</li>
+            <li>empty</li>
+            <li>first()</li>
+            <li>last()</li>
+            <li>get(index)</li>
+            <li>find(item)</li>
+            <li>index(item)</li>
+            <li>includes(item)</li>
+            <br>
+            <li>insert(item, position)</li>
+            <li>append(item)</li>
+            <li>prepend(item)</li>
+            <li>remove(item)</li>
+            <li>clear()</li>
+          </ul>          
+        </section>
+
+        <section>
+          <h2> Tipos de listas </h2>
+
+          <p> Dependiendo cómo se organicen los elementos podemos plantear distintos tipos de listas:</p>
+          
+          <ul style="font-size: 24px">
+            <li>lista enlazada simple (linked list)</li>
+            <li>lista enlazada doble  (double linked list)</li>
+            <li>lista circular (circular list)</li>
+            <li>lista no ordenada (unordered)</li>
+            <li>lista ordenada (sorted)</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2> Lista enlazada simple (linked list) </h2>
+
+          <img width="100%" data-src="/img/lista.png" >
+
+          <p> Analicemos algunas operaciones...</p>
+          <ul>
+            <li> recorrido/búsqueda </li>
+            <li> inserción </li>
+            <li> eliminación </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2> Lista enlazada simple (linked list)</h2>
+          <h3> Insertar </h3>
+
+          <img width="100%" data-src="/img/lista-agregar.png" >
+        </section>
+
+        <section>
+          <h2> Lista enlazada simple (linked list)</h2>
+          <h3> Remover </h3>
+
+          <img width="100%" data-src="/img/lista-remover.png" >
+
+        </section>
+        
+        <section>
+          <h2> Lista no ordenada (unordered list) </h2>
+
+          <img width="100%" data-src="/img/lista.png" >
+        </section>
+
+        <section>
+          <h2> Lista ordenada (sorted list) </h2>
+
+          <img width="100%" data-src="/img/lista-ordenada.png" >
+          <p class="fragment"> Comparemos algunas operaciones </p>
+          <p class="fragment"> ¿Que pasa con la operación insert(item, index)? </p>
+        </section>
+
+
+        <section>
+          <h2> Otras estructuras lineales </h2>
+
+          <ul style="font-size: 24px">
+            <li> pilas (stack) </li>
+            <li>colas (queue)</li>
+            <li>colas dobles (dequeue)</li>
+            <li>arreglos (array) (estáticos y dinámicos) </li>
+          </ul>
+        </section>
+
+        <section  data-background="/img/pilas.jpg" style="color: #eee">
+          <h1 class="fragment" style="color: white"> pilas </h1>
+          <p class="fragment"> operaciones: </p>
+          <ul class="fragment">
+            <li>
+              push(item)
+            </li>
+            <li>
+              pop()
+            </li>
+            <li>
+              top()
+            </li>            
+          </ul>
+        </section>
+        
+        <section>
+          <h2> colas </h2>
+        </section>
+
+        <section data-background="/img/cola.jpg" style="color: #17D">
+          <h2 style="color: #17D"> Colas </h2>
+
+          <p class="fragment"> operaciones: </p>
+          <ul class="fragment">
+            <li>
+              push(item)
+            </li>
+            <li>
+              pop()
+            </li>
+            <li>
+              top() (o first())
+            </li>
+            <li>
+              last()
+            </li>            
+          </ul>
+        </section>
+
+        <section>
+          <p> podemos decir que tanto pilas como colas son un subconjunto de las listas </p>
+        </section>
+       
+        <section>
+          <h2> Arreglos (Array) </h2>
+
+          <p>
+            Estructura de datos de bajo nivel
+            <br>
+            Almacena un conjunto de objetos en posiciones contiguas de memoria.
+            <br>
+            Indexada. Es decir puede accederse a cada uno de los elementos mediante un índice (suelen ser numéricos)
+            <br>
+            Pueden ser estáticos  o dinámicos.
+          </p>
+        </section>
+        
+        <section>
+          <img width="100%" data-src="/img/array.png">
+          <p>operaciones básicas:</p>
+          <ul style="font-size: 32px">
+            <li> acceder a un valor <br>
+              (suele escribirse a[1])
+            </li>
+            <li> setear un valor <br>(suele escribirse como una asignacion a[1] = item)</li>
+            <li> size o length </li>
+          </ul>
+        </section>
+        
+        <section>        
+        <p>
+          Entre las propiedades mas importantes encontramos: <em>acceso directo</em>
+          <br>
+          <small> (simplemente es necesario acceder a la posicion de memoria que contiene el valor que quiero leer) </small>
+        </p>
+
+        <p class="fragment">comparemos la operación de inserción en un arreglo y en una lista enlazada simple</p>
+        </section>
+
+        <section>
+          <h1>Fin</h1>
+          <p class="fragment">
+            ¿Preguntas?
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+       // Optional reveal.js plugins
+       dependencies: [
+	 { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	 { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	 { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	 { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	 { src: 'plugin/zoom-js/zoom.js', async: true },
+	 { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+    </script>
+
+  </body>
+</html>

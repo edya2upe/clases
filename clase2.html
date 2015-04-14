@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Estructuras de Datos y Algoritmos II - Clase 1</title>
+
+    <meta name="Estructuras de Datos y Algoritmos II - Clase 1">
+    <meta name="author" content="Fernando Martínez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="/css/helpers.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h1>
+            <a href="http://edya2upe.github.io/"> Estructuras de Datos y Algoritmos II </a>
+          </h1>
+          <br>
+          <br>
+	  <h3> Clase 2 </h3>
+	</section>
+        
+        <section>
+          <h1>
+            <a href="http://edya2upe.github.io/"> Estructuras de Datos y Algoritmos II </a>
+          </h1>
+          <br>
+          <h2>
+            Árboles
+          </h2>
+        </section>
+
+        <section>
+          <h2> Repaso</h2>
+        </section>
+        
+        <section>
+          <h3>¿Qué es una estructura de datos?</h3>
+          <h3>¿Qué es un algoritmo?</h3>
+        </section>
+
+        <section data-background-transition="zoom" data-background="/img/placard.jpg">
+          <h1 class="fragment" style="color: white"> El placard </h1>
+        </section>
+
+        <section>
+          <p> Inter-dependencia entre </p>
+          <h3> propiedades y algoritmos </h3>
+          <small class="fragment"> ventajas y desventajas </small>
+        </section>
+        
+        <section>
+          <p> ¿Cómo determinamos qué estructura de datos y qué algoritmos son mejores para solucionar un problema determinado? </p>
+          <p> Analicemos la búsqueda en una lista ordenada y en una no ordenada </p>
+        </section>
+
+        <section>
+          <p> comparamos contando... </p>
+          <p> considerando el peor caso posible en cada caso...</p>
+          <small> La búsqueda binaria tarda mucho menos que la lineal </small>
+        </section>
+
+
+        <section>
+          <h1> Árboles </h1>
+        </section>
+
+        <section data-background="/img/clase2/labyrinth.jpg" data-background-transition="zoom">
+          <h1 class="cfff"> Laberintos </h1>
+        </section>
+        
+        <section data-background="/img/clase2/labyrinth2.jpg" data-background-transition="zoom">
+          <h2 class="cfff">  
+            <a class="cfff" href="http://es.wikipedia.org/wiki/El_jard%C3%ADn_de_senderos_que_se_bifurcan">
+              El jardin de los senderos que se bifurcan
+            </a>
+          </h2>
+        </section>
+
+<section data-transition="zoom">
+  <img class="full" src="/img/clase2/recursion1.png">
+</section>
+
+<section  data-transition="zoom">
+  <img class="full" src="/img/clase2/recursion2.png">
+</section>
+
+<section  data-transition="zoom">
+  <img class="full" src="/img/clase2/recursion3.png">
+</section>
+
+<section  data-transition="zoom">
+  <img class="full" src="/img/clase2/recursion4.png">
+</section>
+
+<section  data-transition="zoom">
+  <img class="full" src="/img/clase2/recursion5.png">
+</section>
+
+<section data-background="/img/clase2/recurrencia.jpg"  data-background-transition="zoom">
+  <h3 class="fragment fborder cfff" > Recurrencia, recursión o recursividad es la forma en la cual se especifica un proceso basado en su propia definición. </h3>
+  <br><br><br><br><br><br><br>
+  <h1 class="cfff"> &nbsp; &nbsp; Recursión</h1>
+</section>
+
+<section>
+  <h1>Definición</h1>
+  <p class="fragment"> Es una <b>colección</b> de nodos, tal que: </p>
+  <ul>
+    <li>puede estar vacía </li>
+    <li>o puede estar formada por un nodo (raíz) y otros dos árboles T1 y T2, dónde la
+raíz de cada árbol Ti está conectado a R por medio de una arista.
+  </li>
+</section>
+
+<section>
+  <h1> Términos </h1>
+  <section>
+    <p>  nodo, arista, raíz, hoja, subárbol </p>
+  </section>
+
+  <section>
+    <p>  padre, hijos, hermanos </p>
+  </section>
+  
+  <section>
+    <h3>  camino  </h3>
+    <p>
+      desde n1 hasta n k , es una secuencia de
+nodos n 1 , n 2 , ....,n k tal que n i es el padre de n i+1 ,
+      para 1 ≤ i < k.
+    </p>
+    <p> La longitud del camino es el número
+de aristas, es decir k-1. Existe un camino de
+longitud cero desde cada nodo a sí mismo. Existe
+un único camino desde la raíz a cada nodo
+    </p>
+  </section>
+
+  <section>
+    <h3>  profundidad de un nodo </h3>
+    <p> Es la longitud del único camino desde la raíz hasta el nodo.</p>
+    <p> La raíz tiene profundidad cero.  </p>
+  </section>
+  
+  <section>
+    <h3>  altura de un nodo </h3>
+    <p> longitud del camino más largo desde el nodo hasta una hoja.
+    <p> Las hojas tienen altura cero. </p>
+    <p> La altura de un árbol es la altura del nodo raíz.</p>
+  </section>
+  
+  <section>
+    <h3> Grado de un nodo: </h3>
+    <p>  es el número de hijos del nodo </p>
+  </section>
+  
+  <section>
+    <h3> Ancestros y Descendientes  </h3>
+    <p> N1 es ancestro de N2 y N2 es descendiente de N1, si existe un camino desde N1 a N2 </p>
+  </section>
+  
+</section>
+
+<section> 
+  <img class="full" src="/img/clase2/caminos.png">
+  <p>  ¿podemos representar el laberinto como un árbol binario?</p>
+</section>
+
+<section> 
+  <img class="full" src="/img/clase2/caminos.png">
+  <p>  ¿podemos representar cualquier laberinto como un árbol binario?</p>
+</section>
+
+<section> 
+  <img class="full" src="/img/clase2/caminos.png">
+  <p>  ¿podemos encontrar un algoritmo que siempre encuentre la salida? </p>
+</section>
+
+<section>
+  <h1>Recorridos</h1>
+  <p>  En profundidad (DFS):   inorden, preorden, postorden </p>
+  <p>  por niveles (BFS) </p>
+</section>
+
+
+<section>
+  <h3>preorden</h3>
+  <pre><code class="markdown">
+    1. proceso la raiz
+    2. Si tengo hijo derecho, recorro el subarbol derecho
+    3. Si tengo hijo izquierdo, recorro el subarbol izquierdo
+  </code></pre>
+</section>
+
+<section>
+  <h3>inorden</h3>
+  <pre><code class="markdown">
+    1. Si tengo subarbol derecho, recorro el subarbol derecho
+    2. proceso la raíz
+    3. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
+  </code></pre>
+</section>
+
+
+<section>
+  <h3>postorden</h3>
+  <pre><code class="markdown">
+    ...
+  </code></pre>
+</section>
+
+<section>
+  <h3>  Por niveles (BFS)</h3>
+  <p class="fragment"> utilizamos estructura auxiliar... </p>
+  <pre class="fragment" style="box-shadow: none">
+    <code class="markdown">
+      encolar raíz
+      mientras haya nodos en la cola:
+          desencolo un nodo
+          proceso el nodo
+          si tiene hijo derecho, encolo hijo derecho
+          si tiene hijo izquierdo, encolo hijo izquierdo
+    </code>
+  </pre>
+</section>
+
+
+<section>
+  <h1> Aplicaciones </h1>
+  <p> Árboles binarios de búsqueda</p>
+  <p>Árboles de expresión</p>
+</section>
+
+
+<section>
+  <h2>Árboles binarios de búsqueda </h2>
+  <img class="center" src="/img/clase2/arbol_busqueda.png">
+</section>
+
+
+  <section>
+    <h2> Árboles de expresión </h2>
+    <p>
+      a*( (b*d) +c) ) + ( e+ (f*g) )
+    </p>
+  
+    <img  class="center" src="/img/clase2/arbol_exp.png">
+</section>
+
+
+
+
+
+<section>
+  <h1>Fin</h1>
+  <p class="fragment">
+    ¿Preguntas?
+  </p>
+</section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+       // Optional reveal.js plugins
+       dependencies: [
+	 { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	 { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	 { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	 { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	 { src: 'plugin/zoom-js/zoom.js', async: true },
+	 { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+    </script>
+
+  </body>
+</html>
