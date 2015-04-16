@@ -219,17 +219,17 @@ un único camino desde la raíz a cada nodo
   <h3>preorden</h3>
   <pre><code class="markdown">
     1. proceso la raiz
-    2. Si tengo hijo derecho, recorro el subarbol derecho
-    3. Si tengo hijo izquierdo, recorro el subarbol izquierdo
+    2. Si tengo hijo izquierdo, recorro el subarbol izquierdo
+    3. Si tengo hijo derecho, recorro el subarbol derecho
   </code></pre>
 </section>
 
 <section>
   <h3>inorden</h3>
   <pre><code class="markdown">
-    1. Si tengo subarbol derecho, recorro el subarbol derecho
+    1. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
     2. proceso la raíz
-    3. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
+    3. Si tengo subarbol derecho, recorro el subarbol derecho
   </code></pre>
 </section>
 
@@ -250,8 +250,8 @@ un único camino desde la raíz a cada nodo
       mientras haya nodos en la cola:
           desencolo un nodo
           proceso el nodo
-          si tiene hijo derecho, encolo hijo derecho
           si tiene hijo izquierdo, encolo hijo izquierdo
+          si tiene hijo derecho, encolo hijo derecho
     </code>
   </pre>
 </section>
