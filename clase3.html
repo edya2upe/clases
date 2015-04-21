@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Estructuras de Datos y Algoritmos II - Clase 1</title>
+
+    <meta name="Estructuras de Datos y Algoritmos II - Clase 1">
+    <meta name="author" content="Fernando Martínez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <!-- beige.css black.css blood.css league.css moon.css night.css serif.css simple.css sky.css solarized.css white.css -->
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/helpers.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h3>
+            <a href="http://edya2upe.github.io/"> Estructuras de Datos y Algoritmos II </a>
+          </h3>
+          <br><br>
+	  <h2> Clase 3 </h2>
+          <br><br>
+          <h4> Árboles(2) </h4>
+          </h3>
+          <small style="float: left"><a href="?print-pdf">versión imprimible o pfd</a></small>          
+	</section>
+        
+        <section>
+          <h2> Repaso</h2>
+        </section>
+
+        <section data-background="img/clase2/recurrencia.jpg"  data-background-transition="zoom">
+          <h3 class="fragment fborder cfff" > Recurrencia, recursión o recursividad es la forma en la cual se especifica un proceso basado en su propia definición. </h3>
+          <br><br><br><br><br>
+          <h2 class="cfff"> &nbsp; &nbsp; Recursión</h2>
+        </section>
+
+        <section>
+          <h1>Árbol binario</h1>
+          <p> Es una <b>colección</b> de nodos, tal que: </p>
+          <ul>
+            <li> puede estar vacía </li>
+            <li> o puede estar formada por un nodo (raíz) y otros dos árboles T1 y T2, dónde la
+              raíz de cada árbol Ti está conectado a R por medio de una arista.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Recorridos</h1>
+          <ul>
+            <li> En profundidad (DFS):   inorden, preorden, postorden </li>
+            <li>  Por niveles (BFS) </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2> Árbol binario de búsqueda </h2>
+          <h3> 2 propiedades: </h3>
+          <ul>
+            <li> <b>Proiedad estructural:</b> binario </li>
+            <li> <b>Propiedad de orden:</b> todos los hijos de sub arbol izquierdo tienen valores menores a los de la raíz y todos los hijos del sub arbol derecho tienen valores mayores (o iguales) a los de la raíz </li>
+          </ul>
+        </section>
+
+        <section>
+          <p> Comparación búsqueda en una lista y en un árbol binario de búsqueda </p>
+          <p> ¿y el peor caso? </p>
+        </section>
+        
+        <section>
+          <h1> Árboles AVL </h1>
+          <h3>
+            (Georgii Adelson-Velskii y Yevgeniy Landis)
+          </h3>
+          <p>
+            Es un árbol binario de búsqueda <b>equilibrado</b>. </p>
+          <p>Para todos sus nodos se cumple que la altura de la rama izquierda no difiere en más de una unidad de la altura de la rama derecha o viceversa.
+          </p>
+        </section>
+        
+        <section>
+          <h1> Definición </h1>
+          <p> Un árbol AVL es un árbol binario tal que:</p>
+          <ul>
+            <li> Es un árbol vacío </li>
+            <li> O, si T es un árbol no vacío y Ti y Td sus subárboles:
+              <ul>
+                <li> Ti es AVL</li>
+                <li> Td es AVL</li>
+                <li> |altura(Ti) - altura(Td)| <= 1 </li>
+              </ul>
+              <br>
+              <small><b> NOTA:</b> (un árbol vacío tiene altura -1) </small>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3> ¿ Altura de un árbol ? </h3>
+        </section>
+        
+        <section>          
+          <p> ¿Cómo hacemos para mantener las alturas de los sub-árboles <b>Equilibradas</b>? </p>
+            <br>
+          <p> ¿Cuándo se "desequilibra" un árbol binario? </p>
+        </section>
+
+        <section>
+          <h3>Casos de desbalanceo</h3>
+          <div class="box">
+            <b>1.</b> Inserción en el Subárbol IZQ del hijo IZQ
+            <img src="./img/clase3/desbalanceo1.png">
+          </div>
+          <div class="box">
+            <b>2.</b> Inserción en el Subárbol DER del hijo IZQ
+            <img src="./img/clase3/desbalanceo2.png"> 
+          </div>
+          <div class="box">
+            <b>3.</b> Inserción en el Subárbol IZQ del hijo DER
+            <img src="./img/clase3/desbalanceo3.png">
+          </div>
+          <div class="box">
+            <b>4.</b> Inserción en el Subárbol DER del hijo DER
+            <img src="./img/clase3/desbalanceo4.png">
+          </div>
+        </section>
+
+        <section>
+          <p> ¿Cómo re-balanceamos?</p>
+          <br><br>
+          <h2 class="fragment">  Rotación </h2>
+          <br><br>
+          <p class="f20 fragment">
+            La rotación es una modificación simple de la estructura del árbol,
+            que restaura la propiedad de balanceo,
+            preservando el orden de los elementos
+          </p>
+        </section>
+
+        <section>
+          <h2> Balanceo </h2>
+          <ul>
+            <li><b>casos de desbalanceo 1 y 4:</b> rotación simple</li>
+            <li><b>casos de desbalanceo 2 y 3:</b> rotación doble </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Rotación simple</h3>
+          <img src="./img/clase3/rotacion_simple.png">
+        </section>
+        
+        <section>
+          <h3>Rotación doble</h3>
+          <img src="./img/clase3/rotaciondoble1.png">
+        </section>
+
+        <section data-transition="slide">
+          <div class="box">
+            <img src="./img/clase3/rotaciondoble2.png">
+          </div>
+          <div class="box fragment">
+            <img src="./img/clase3/rotaciondoble3.png">
+          </div>
+        </section>
+
+        <section data-transition="slide">
+          <div class="box">
+            <img src="./img/clase3/rotaciondoble3.png">
+          </div>
+          <div class="box fragment">
+            <img src="./img/clase3/rotaciondoble4.png">
+          </div>
+        </section>
+
+        <section data-transition="slide">
+          <div class="box">
+            <img src="./img/clase3/rotaciondoble4.png">
+          </div>
+          <div class="box">
+            <img src="./img/clase3/rotaciondoble5.png">
+          </div>
+        </section>
+
+        <section>
+          <h3> comparación de operaciones en ABB y AVL </h3>
+          <br>
+          <ul>
+            <li> Buscar </li>
+            <li> Insertar </li>
+            <li> Eliminar </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2> comparación de operaciones en ABB y AVL </h2>
+
+          <br>
+          <p>Analizando el peor caso respecto de la cantidad de elementos(N)</p>
+          <ul>
+            <li> <b>ABB:</b> todas las operaciones son lineales. </li>
+            <li> <b>AVL:</b> todas las operaciones son log(N). </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1> Árboles Generales </h1>
+        </section>
+
+
+        <section>
+          <h1>definición</h1>
+          <p> Un árbol es una colección de nodos, tal que: </p>
+          <ul>
+            <li> puede estar vacía. (Árbol vacío) </li>
+            <li>o puede estar formada por un nodo raíz (R) y un conjunto de (sub)árboles T1, T2, ... Tn, k >= 0 dónde la
+              raíz de cada árbol Ti está conectado a R por medio de una arista. </li>
+          </ul>
+        </section>
+
+        <section>
+          <p> ¿Que cambiarían de la implementación de ÁrbolBinario para que sea ArbolGeneral? </p>
+        </section>
+
+        <section>
+          <h1> Implementaciones </h1>
+          <ul>
+            <li> Lista de hijos </li>
+            <li> Hijo izquierdo, Hermano derecho </li>
+          </ul>
+        </section>
+        
+        <section>
+          <h1> Recorridos </h1>
+          <p>  En profundidad (DFS): inorden, preorden, postorden </p>
+          <p>  por niveles (BFS) </p>
+        </section>
+
+        <section>
+          <h3>preorden en AB</h3>
+          <pre><code class="markdown">
+            1. proceso la raiz
+            2. Si tengo hijo derecho, recorro el subarbol derecho
+            3. Si tengo hijo izquierdo, recorro el subarbol izquierdo
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>preorden en AG</h3>
+          <pre><code class="markdown">
+            1. proceso la raiz
+            2. para cada árbol hijo
+              2.1. recorro el hijo
+          </code></pre>
+        </section>
+        
+        <section>
+          <h3>inorder</h3>
+          <pre class="fragment"><code class="markdown">
+            1. recorro el primer hijo
+            2. proceso la raiz
+            3. para cada árbol hijo
+              3.1. recorro el hijo
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>¿post orden y por niveles?</h3>
+          <pre><code class="markdown">
+            ...
+          </code></pre>
+        </section>
+
+        
+        <section>
+          <h1>Fin</h1>
+          <p class="fragment">
+            ¿Preguntas?
+          </p>
+        </section>
+            
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+         // Full list of configuration options available at:
+         // https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+           controls: true,
+           progress: true,
+           history: true,
+           center: true,
+
+           transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+           // Optional reveal.js plugins
+           dependencies: [
+	     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	     { src: 'plugin/zoom-js/zoom.js', async: true },
+	     { src: 'plugin/notes/notes.js', async: true },
+           ]
+         });
+
+        </script>
+  </body>
+</html>
