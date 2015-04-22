@@ -108,187 +108,205 @@
           </h2>
         </section>
 
-<section data-transition="zoom">
-  <img class="full" src="img/clase2/recursion1.png">
-</section>
+        <section data-transition="zoom">
+          <img class="full" src="img/clase2/recursion1.png">
+        </section>
 
-<section  data-transition="zoom">
-  <img class="full" src="img/clase2/recursion2.png">
-</section>
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/recursion2.png">
+        </section>
 
-<section  data-transition="zoom">
-  <img class="full" src="img/clase2/recursion3.png">
-</section>
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/recursion3.png">
+        </section>
 
-<section  data-transition="zoom">
-  <img class="full" src="img/clase2/recursion4.png">
-</section>
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/recursion4.png">
+        </section>
 
-<section  data-transition="zoom">
-  <img class="full" src="img/clase2/recursion5.png">
-</section>
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/recursion5.png">
+        </section>
 
-<section data-background="img/clase2/recurrencia.jpg"  data-background-transition="zoom">
-  <h3 class="fragment fborder cfff" > Recurrencia, recursión o recursividad es la forma en la cual se especifica un proceso basado en su propia definición. </h3>
-  <br><br><br><br><br><br><br>
-  <h1 class="cfff"> &nbsp; &nbsp; Recursión</h1>
-</section>
+        <section data-background="img/clase2/recurrencia.jpg"  data-background-transition="zoom">
+          <h3 class="fragment fborder cfff" > Recurrencia, recursión o recursividad es la forma en la cual se especifica un proceso basado en su propia definición. </h3>
+          <br><br><br><br><br><br><br>
+          <h1 class="cfff"> &nbsp; &nbsp; Recursión</h1>
+        </section>
 
-<section>
-  <h1>Definición</h1>
-  <p class="fragment"> Es una <b>colección</b> de nodos, tal que: </p>
-  <ul>
-    <li>puede estar vacía </li>
-    <li>o puede estar formada por un nodo (raíz) y otros dos árboles T1 y T2, dónde la
-raíz de cada árbol Ti está conectado a R por medio de una arista.
-  </li>
-</section>
+        <section>
+          <h1>Definición</h1>
+          <p class="fragment"> Es una <b>colección</b> de nodos, tal que: </p>
+          <ul>
+            <li>puede estar vacía </li>
+            <li>o puede estar formada por un nodo (raíz) y otros dos árboles T1 y T2, dónde la
+              raíz de cada árbol Ti está conectado a R por medio de una arista.
+            </li>
+        </section>
 
-<section>
-  <h1> Términos </h1>
-  <section>
-    <p>  nodo, arista, raíz, hoja, subárbol </p>
-  </section>
+        <section>
+          <h1> Términos </h1>
+          <section>
+            <p>  nodo, arista, raíz, hoja, subárbol </p>
+          </section>
 
-  <section>
-    <p>  padre, hijos, hermanos </p>
-  </section>
-  
-  <section>
-    <h3>  camino  </h3>
-    <p>
-      desde n1 hasta n k , es una secuencia de
-nodos n 1 , n 2 , ....,n k tal que n i es el padre de n i+1 ,
-      para 1 ≤ i < k.
-    </p>
-    <p> La longitud del camino es el número
-de aristas, es decir k-1. Existe un camino de
-longitud cero desde cada nodo a sí mismo. Existe
-un único camino desde la raíz a cada nodo
-    </p>
-  </section>
+          <section>
+            <p>  padre, hijos, hermanos </p>
+          </section>
+          
+          <section>
+            <h3>  camino  </h3>
+            <p>
+              desde n1 hasta n k , es una secuencia de
+              nodos n 1 , n 2 , ....,n k tal que n i es el padre de n i+1 ,
+              para 1 ≤ i < k.
+            </p>
+            <p> La longitud del camino es el número
+              de aristas, es decir k-1. Existe un camino de
+              longitud cero desde cada nodo a sí mismo. Existe
+              un único camino desde la raíz a cada nodo
+            </p>
+          </section>
 
-  <section>
-    <h3>  profundidad de un nodo </h3>
-    <p> Es la longitud del único camino desde la raíz hasta el nodo.</p>
-    <p> La raíz tiene profundidad cero.  </p>
-  </section>
-  
-  <section>
-    <h3>  altura de un nodo </h3>
-    <p> longitud del camino más largo desde el nodo hasta una hoja.
-    <p> Las hojas tienen altura cero. </p>
-    <p> La altura de un árbol es la altura del nodo raíz.</p>
-  </section>
-  
-  <section>
-    <h3> Grado de un nodo: </h3>
-    <p>  es el número de hijos del nodo </p>
-  </section>
-  
-  <section>
-    <h3> Ancestros y Descendientes  </h3>
-    <p> N1 es ancestro de N2 y N2 es descendiente de N1, si existe un camino desde N1 a N2 </p>
-  </section>
-  
-</section>
+          <section>
+            <h3>  profundidad de un nodo </h3>
+            <p> Es la longitud del único camino desde la raíz hasta el nodo.</p>
+            <p> La raíz tiene profundidad cero.  </p>
+          </section>
+          
+          <section>
+            <h3>  altura de un nodo </h3>
+            <p> longitud del camino más largo desde el nodo hasta una hoja.
+              <p> Las hojas tienen altura cero. </p>
+              <p> La altura de un árbol es la altura del nodo raíz.</p>
+          </section>
+          
+          <section>
+            <h3> Grado de un nodo: </h3>
+            <p>  es el número de hijos del nodo </p>
+          </section>
+          
+          <section>
+            <h3> Ancestros y Descendientes  </h3>
+            <p> N1 es ancestro de N2 y N2 es descendiente de N1, si existe un camino desde N1 a N2 </p>
+          </section>
+          
+        </section>
 
-<section>
-  <small>  ¿podemos representar el laberinto como un árbol binario?</small>
-  <img class="full" src="img/clase2/caminos.png">
-</section>
+        <section>
+          <small>  ¿podemos representar el laberinto como un árbol binario?</small>
+          <img class="full" src="img/clase2/caminos.png">
+        </section>
 
-<section>
-  <small>  ¿podemos representar cualquier laberinto como un árbol binario?</small>
-  <img class="full" src="img/clase2/caminos.png">
-</section>
+        <section>
+          <small>  ¿podemos representar cualquier laberinto como un árbol binario?</small>
+          <img class="full" src="img/clase2/caminos.png">
+        </section>
 
-<section>
-  <small>  ¿podemos encontrar un algoritmo que siempre encuentre la salida? </small>
-  <img class="full" src="img/clase2/caminos.png">
-</section>
+        <section>
+          <small>  ¿podemos encontrar un algoritmo que siempre encuentre la salida? </small>
+          <img class="full" src="img/clase2/caminos.png">
+        </section>
 
-<section>
-  <h1>Recorridos</h1>
-  <p>  En profundidad (DFS):   inorden, preorden, postorden </p>
-  <p>  por niveles (BFS) </p>
-</section>
-
-
-<section>
-  <h3>preorden</h3>
-  <pre><code class="markdown">
-    1. proceso la raiz
-    2. Si tengo hijo izquierdo, recorro el subarbol izquierdo
-    3. Si tengo hijo derecho, recorro el subarbol derecho
-  </code></pre>
-</section>
-
-<section>
-  <h3>inorden</h3>
-  <pre><code class="markdown">
-    1. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
-    2. proceso la raíz
-    3. Si tengo subarbol derecho, recorro el subarbol derecho
-  </code></pre>
-</section>
+        <section>
+          <h1>Recorridos</h1>
+          <p>  En profundidad (DFS):   inorden, preorden, postorden </p>
+          <p>  por niveles (BFS) </p>
+        </section>
 
 
-<section>
-  <h3>postorden</h3>
-  <pre><code class="markdown">
-    ...
-  </code></pre>
-</section>
+        <section>
+          <h3>preorden</h3>
+          <pre><code class="markdown">
+            1. proceso la raiz
+            2. Si tengo hijo izquierdo, recorro el subarbol izquierdo
+            3. Si tengo hijo derecho, recorro el subarbol derecho
+          </code></pre>
+        </section>
 
-<section>
-  <h3>  Por niveles (BFS)</h3>
-  <p class="fragment"> utilizamos estructura auxiliar... </p>
-  <pre class="fragment" style="box-shadow: none">
-    <code class="markdown">
-      encolar raíz
-      mientras haya nodos en la cola:
-          desencolo un nodo
-          proceso el nodo
-          si tiene hijo izquierdo, encolo hijo izquierdo
-          si tiene hijo derecho, encolo hijo derecho
-    </code>
-  </pre>
-</section>
+        <section>
+          <h3>inorden</h3>
+          <pre><code class="markdown">
+            1. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
+            2. proceso la raíz
+            3. Si tengo subarbol derecho, recorro el subarbol derecho
+          </code></pre>
+        </section>
 
 
-<section>
-  <h1> Aplicaciones </h1>
-  <p> Árboles binarios de búsqueda</p>
-  <p>Árboles de expresión</p>
-</section>
+        <section>
+          <h3>postorden</h3>
+          <pre><code class="markdown">
+            1. Si tengo subarbol izquierdo, recorro el subarbol izquierdo
+            2. Si tengo subarbol derecho, recorro el subarbol derecho
+            3. proceso la raíz
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>  Por niveles (BFS)</h3>
+          <p class="fragment"> utilizamos estructura auxiliar... </p>
+          <pre class="fragment" style="box-shadow: none">
+            <code class="markdown">
+              encolar raíz
+              mientras haya nodos en la cola:
+              desencolo un nodo
+              proceso el nodo
+              si tiene hijo izquierdo, encolo hijo izquierdo
+              si tiene hijo derecho, encolo hijo derecho
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h3>  Por niveles (con marca de fin de nivel)</h3>
+          <p class="fragment"> utilizamos estructura auxiliar... </p>
+          <pre class="fragment" style="box-shadow: none">
+            <code class="markdown">
+              1. encolar raíz
+              2. encolar marca de fin de nivel
+              3. mientras la cola no sea vacía:
+              3.1 desencolo un elemento
+              3.2 mientras elemento no sea fin de nivel
+              3.2.1 proceso el nodo
+              3.2.2 si tiene hijo izquierdo, encolo hijo izquierdo
+              3.2.3 si tiene hijo derecho, encolo hijo derecho
+              3.2.4 desencolo un elemento
+              3.3 si la cola no es vacía, encolo marca de fin de nivel
+            </code>
+          </pre>
+        </section>
 
 
-<section>
-  <h2>Árboles binarios de búsqueda </h2>
-  <img class="center" src="img/clase2/arbol_busqueda.png">
-</section>
+        <section>
+          <h1> Aplicaciones </h1>
+          <p> Árboles binarios de búsqueda</p>
+          <p> Árboles de expresión </p>
+        </section>
 
 
-  <section>
-    <h2> Árboles de expresión </h2>
-    <p>
-      a*( (b*d) +c) ) + ( e+ (f*g) )
-    </p>
-  
-    <img  class="center" src="img/clase2/arbol_exp.png">
-</section>
+        <section>
+          <h2>Árboles binarios de búsqueda </h2>
+          <img class="center" src="img/clase2/arbol_busqueda.png">
+        </section>
 
 
+        <section>
+          <h2> Árboles de expresión </h2>
+          <p>
+            a*( (b*d) +c) ) + ( e+ (f*g) )
+          </p>
+          
+          <img  class="center" src="img/clase2/arbol_exp.png">
+        </section>
 
 
-
-<section>
-  <h1>Fin</h1>
-  <p class="fragment">
-    ¿Preguntas?
-  </p>
-</section>
+        <section>
+          <h1>Fin</h1>
+          <p class="fragment">
+            ¿Preguntas?
+          </p>
+        </section>
       </div>
     </div>
 
