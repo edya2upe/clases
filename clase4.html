@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Estructuras de Datos y Algoritmos II - Clase 4</title>
+
+    <meta name="Estructuras de Datos y Algoritmos II - Clase 4">
+    <meta name="author" content="Fernando Martínez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+    <!-- beige.css black.css blood.css league.css moon.css night.css serif.css simple.css sky.css solarized.css white.css -->
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/helpers.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h3>
+            <a href="http://edya2upe.github.io/"> Estructuras de Datos y Algoritmos II </a>
+          </h3>
+          <br><br>
+	  <h2> Clase 4 </h2>
+          <br><br>
+          <h4> Análisis de Algoritmos </h4>
+          </h3>
+          <small style="float: left"><a href="?print-pdf">versión imprimible o pfd</a></small>          
+	</section>
+        
+        <section data-transition="zoom">
+          <h1> eficiencia </h1>
+        </section>
+
+        <section>
+          <p> <em>
+            "la eficiencia algorítmica describe aquellas propiedades de los algoritmos que están relacionadas con la cantidad de recursos utilizados por el algoritmo. Un algoritmo debe ser analizado para determinar el uso de los recursos que realiza"</em></p>
+          "
+        </section>
+
+
+        <section>
+          <h2> recursos </h2>
+
+          <p> CPU, Memoria, Disco, Red, Etc... </p>
+
+          <p class="fragment"> vamos a medir la <b>complejidad algorítmica</b> <small>(uso del cpu)</small> </p>
+        </section>
+
+        <section>
+          <h2> ¿cómo medir?</h2>
+          <p> prendo el cronómetro, corro el programa, espero...</p>
+          <p> cuando termina, paro el cronómetro y me fijo cuenta tiempo pasó</p>
+          <br>
+          <br>
+          <p> enfoque empírico (o a posteriori) vs teórico (o a priori) </p>
+        </section>
+
+        <section>
+          <h2> ¿cómo medimos?</h2>
+          <p>
+            El tiempo requerido por una función es proporcional a la cantidad de <b>operaciones básicas que realiza.</b>
+          </p>
+          <ul>
+            <li>una operación artimética ( +, *, -, /).</li>
+            <li>una asignación</li>
+            <li>un test (if(x = 0) )</li>
+            <li>una lectura </li>
+            <li>una escritura </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2> ¿cuántas operaciones básicas?</h2>
+          <pre>
+            <code class="python">
+              a = 1 
+              b = 10
+              while (a <= b):
+              print(a + i)
+              a += 1
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2> ¿cuántas operaciones básicas?</h2>
+          <pre>
+            <code class="python">
+              a = 1    #=> 2
+              b = 10   #=> 2
+              while (a <= b): #=> (i == b) x 10
+              print(a + i) #=> 2
+              a += 1 #=> 2
+
+              # 2 + 2 + 10 * (1 + 2 + 2) = 54
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>performance != complejidad </h2>
+
+          <h4>performance</h4>
+          <p>
+            cuánto se utiliza del recurso que estamos midiendo. Además del código, depende de la máquina, el compilador, etc...
+          </p>
+          <h4>complejidad </h4>
+          <p>
+            cómo escala la utilización del recurso. (cómo es esa utilización a medida que el tamaño del problema crece)
+          </p>
+          <br>
+          <small class="cfff">
+            La complejidad afecta a la performance, pero no al revés. Es independiente de la plataforma.
+          </small>
+        </section>
+
+        <section>
+          <p>
+            cuando intentamos encontrar la complejidad de un algoritmo, no nos interesa el número exacto de las operaciones realizadas, Sino la relación entre el número de operaciones y el tamaño del problema.
+          </p>
+          <p>
+            y nos interesa sobre todod el peor caso, es decir el número máximo de operaciones posibles para un tamaño determinado.
+          </p>
+        </section>
+
+
+        <section>
+          <h2>Big-O </h2>
+          <small> Noción intuitiva </small> 
+          <br>
+          <p> analicemos la relación entre la cantidad de operaciónes y el tamaño del problema en algunos casos</p>
+        </section>
+
+        <section>
+          <h2> Big-O </h2>
+          <h5> caso 1: operación Pila.tope() </h5>
+          <p> ¿cómo es la relación entre cantidad de operaciones y el tamaño de la pila? </p>
+          <br>
+          <p class="fragment"> Constante o de Orden(1)</p>
+          <small class="fragment"> siempre tarda lo mismo, independientemente de cuantos elementos haya en la pila </small>
+        </section>
+
+        <section>
+          <h2> Big-O </h2>
+          <h4> caso 2: búsqueda en una lista simple </h4>
+          <p> ¿cómo es la relación entre cantidad de operaciones y el tamaño de la lista? </p>
+          <br>
+          <p class="fragment"> Lineal o de Orden(N)</p>
+          <small class="fragment"> cuando la cantidad de elementos de la lista crece, la cantidad de operaciones básicas crece de manera proporcional a N  (si con un elemento se requiren 5 operaciones, con 2 van a ser 10, con 3 => 15, con 4 => 20, ... , N => 5N)</small>
+        </section>
+
+        <section>
+          <h2> Big-O </h2>
+          <h4> caso 3: búsqueda en un Arbol AVL</h4>
+          <p> ¿cómo es la relación entre cantidad de operaciones y el tamaño del árbol? </p>
+          <br>
+          <p class="fragment"> Logarítmica o de Orden log(N)</p>
+          <small class="fragment"> cuando la cantidad de elementos de la lista crece, la cantidad de operaciones básicas crece en proporción al logaritmo de N. (si para 1 elemento se requiren 2 op, 16 elementos => 2*4 op, 32 => 2*5, 64 => 2*6, ... N => 2*log(N) )</small>
+        </section>
+
+
+        <section>
+          <h2> definición formal </h2>
+        </section>
+
+        <section>
+          <small> Primero... </small>
+          <h2>
+            ¿qué es <b> T(n) </b>
+          </h2>
+          <p class="fragment"> 
+            una <b>función</b>
+          </p>
+        </section>
+        <section>
+          <h2> ¿y una función? </h2>
+          <p class="fragment">
+            una asociación un valor de entrada con uno de salida
+          </p>
+        </section>
+        <section>
+          <h3> ahora... </h3>
+          <p> n, log(n), n², <b>¿Son valores?</b></p>
+          <br>
+          <p class="fragment"> 
+            NO, son funciones.
+            <br>
+            Por lo tanto, <em>T(n)</em> es una funcion que devuelve una funcion!
+            <small> (higher order function, o función de orden superior) </small>
+        </section>
+
+        <section>
+          <h2>Big O</h2>
+          <small>definición:</small>
+          <br>
+          <p>
+            Una función T(N) es O(f(N)) si existen las constantes C y n0 tal que:
+            <br>
+            <br>
+            <h3>  T(N) <= C * f(N) </h3>
+            <br>
+            para todo N >= n0
+          </p>
+          <br>
+          <p> <small>Se lee:</small> T de N es de Orden F de N </p>
+        </section>
+
+        <section>
+          <h1> ¿Quéee?</h1>
+        </section>
+        <section>
+          <h2> ¿Qué significa? </h2>
+          <ol> 
+            <li>Que la complejidad exacta de un algoritmo, es función del tamaño del problema ( T(N) )</li>
+            <li>Que f(N) es una cota superior de dicha complejidad. Es decir, que en el peor caso, la complejidad del algoritmo nunca va a ser mayor que f(N).</li>
+          </ol>
+
+          <br>
+          <br>
+          <br>
+          <small> La forma más fácil de entenderlo es ponerle números a las constantes y a F(n) </small>
+        </section>
+
+        <section>
+          <h3>Funciones características</h3>
+          <img class="full" src="img/clase4/funciones-caracteristicas.png">
+        </section>
+
+        <section>
+          <h2> Cómo calculamos T(N) </h2>
+          <h4> secuencia de sentencias </h4>
+          <pre> <code class="python">
+            sentencia 1
+            sentencia 2
+            sentencia 3
+          </code></pre>
+          <p class="fragment">
+            T(N) = T(sentencia 1) + T(sentencia 2) + T(sentencia 3)
+          </p>
+          <small class="fragment">
+            si las sentencias están todas construidas por sentencias básicas,<br>
+            entonces es el tiempo de cada sentencias es O(1)<br>
+            por lo tanto, la suma total también es O(1)
+          </small>
+        </section>
+
+        <section>
+          <h2> condicional </h2>
+          <pre><code class="python">
+            if(cond):
+               bloque 1;
+            else:
+               bloque 2;
+          </code></pre>
+          <p cass="fragment">
+            T(N) = max(t(bloque 1), t(bloque 2))
+          </p>
+          <small clas="fragment">
+            Dado que o bien ejecuta el bloque 1 o bien el bloque 2<br>
+            y que tenemos en cuenta el peor caso.
+          </small>
+        </section>
+
+        <section>
+          <h2> Loops (for, while, etc) </h2>
+
+          <pre> <code class="python">
+            for i in range(1..n):
+                secuencia;
+          </code></pre>
+          <p class="fragment">
+            T(N) = N * T(secuencia)
+          </p>
+          <small class="fragment">
+            El bucle se ejecuta N veces, por lo tanto la secuencia se ejecuta N veces<br>
+            si T(secuencia) O(1) => el bucle es N * O(1) => O(N)            
+          </small>
+        </section>
+
+        <section>
+          <h2> Bucles anidados </h2>
+          <pre> <code class="python">
+            for i in range(1..n):
+               for j in range(1..m):
+                  secuencia;
+          </code></pre>
+
+          <small class="fragment">
+            El for externo se ejecuta n veces,<br>
+            para cada iteración del for externo hay m iteraciones del interno<br>
+            las sentencias se ejecutan n * m veces<br>
+            si las consideramos O(1)
+          </small>
+
+          <p class="fragment">
+            Tiempo total: O(n * m)<br>
+            si m = n, entoces total O(n²)
+          </p>
+        </section>
+
+        <section>
+          <section>
+          <h2> Recurrencia </h2>
+          <pre><code class="python">
+            def potencia(x, n):
+              if(n == 0):
+                return 1
+              else:
+                return x * potencia(x, n-1)
+          </code></pre>
+          </section>
+          <section>
+            <ol>
+              <li>t(0) = O(1)</li>
+              <li>t(n) = t(n-1) + 2</li>
+            </ol>
+            <pre>
+
+            t(n-1) = t(n-2) + 2
+
+            </pre>
+          </section>
+          <section>
+            <pre>
+          reemplazamos t(n-1) en 1.
+            
+          t(n) = [  t(n-1)  ] + 2
+          t(n) = [t(n-2) + 2] + 2
+            </pre>
+          </section>
+
+          <section>
+            <pre>
+                t(n-2) = t(n-3) + 2
+      
+                t(n) = [  t(n-2)  ] + 2 + 2
+                t(n) = [  t(n-2)  ] + 2 + 2
+      
+                t(n) = [t(n-3) + 2] + 2 + 2
+                t(n) = t(n-3) + 2*3
+                
+                t(n-3) = [t(n-4) + 2]
+      
+              t(n) = t(n-4) + 2 + 3*2
+              t(n) = t(n-4) + 4*2
+            </pre>
+          </section>
+          <section>
+            <h2> en general </h2>
+            <pre>
+              t(n) = t(n-i) + 2 * i
+            </pre>
+          </section>
+          <section>
+            <ol>
+              <li>t(0) = O(1)</li>
+              <li>t(n) = t(n-i) + 2*i</li>
+            </ol>
+            <br>
+            <br>
+            <small>
+              ya sabemos que T(0) es 1
+              <br>
+              ¿Qué valor debería tener n, para que t(n-i) sea t(0)?
+              <br>
+            </small>
+            
+          </section>
+          <section>
+            Igualamos (n - i) = 0 y despejamos i
+            <pre>
+              n - i = 0
+            
+              # si despejamos i
+              
+              i = n
+              
+              # reemplazamos i en la expresión general de la recurrencia:
+              t(n) = t(n-i) + 2 * i
+              t(n) = t(n - n) + 2 * n
+              t(n) = t(0) + 2*n
+              t(n) = 1 + 2*n
+              
+              T(n) = O(n)
+            </pre>
+          </section>
+          <section>
+
+            En la página tienen disponible un 
+            <a href="http://edya2upe.github.io/public/files/fuente_tiempoDeEjecucion.zip"> <b> Apunte </b> </a>
+            con las explicaciones prácticas acerca del cálculo de T(n) iterativo y recurrente.
+            
+          </section>
+        </section>
+        <section>
+          <h2> Algunas referencias </h2>
+          <a href="http://web.mit.edu/16.070/www/lecture/big_o.pdf"> http://web.mit.edu/16.070/www/lecture/big_o.pdf </a>
+          <a href="http://courses.csail.mit.edu/6.01/spring07/lectures/lecture4.pdf"> http://courses.csail.mit.edu/6.01/spring07/lectures/lecture4.pdf </a>
+          <a href="http://www.lab.dit.upm.es/~lprg/material/apuntes/o/#s2"> http://www.lab.dit.upm.es/~lprg/material/apuntes/o/#s2 </a>
+          <a href="http://en.wikipedia.org/wiki/Big_O_notation"> http://en.wikipedia.org/wiki/Big_O_notation </a>
+          <a href="http://www.cs.ucf.edu/~dmarino/ucf/cop3502/lec_biswas/recursion12.pdf"> http://www.cs.ucf.edu/~dmarino/ucf/cop3502/lec_biswas/recursion12.pdf </a>
+        </section>
+
+
+        <section>
+          <h1>Fin</h1>
+          <small>
+            ¿Preguntas?
+          </small>
+        </section>
+        
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+         // Full list of configuration options available at:
+         // https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+           controls: true,
+           progress: true,
+           history: true,
+           center: true,
+
+           transition: 'zoom', // none/fade/slide/convex/concave/zoom
+
+           // Optional reveal.js plugins
+           dependencies: [
+	     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	     { src: 'plugin/zoom-js/zoom.js', async: true },
+	     { src: 'plugin/notes/notes.js', async: true },
+           ]
+         });
+
+        </script>
+  </body>
+</html>
