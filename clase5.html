@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
     <!-- beige.css black.css blood.css league.css moon.css night.css serif.css simple.css sky.css solarized.css white.css -->
 
     <!-- Code syntax highlighting -->
@@ -258,7 +258,7 @@ u = un vertice no visitado
         <section>
           <h2> BFS </h2>
           <p>
-            Breath First Search o Recorrido en Amplitud
+            Breadth First Search o Recorrido en Amplitud
           </p>
 
           <small> comparemos con el recorrido de árboles </small>
@@ -267,17 +267,19 @@ u = un vertice no visitado
 
         <section>
           <h2> BFS </h2>
-          <pre><code class="f24 markdown" >
+          <pre><code class="f24 bash" style="line-height: 1.1em">
 marcar todos los nodos como no visitados
 u = un vertice no visitado
 encolar u
-
+marcar u como vistado
+            
 mientras haya vertices:
-    desencolo un vertice u
-    marcar u como vistado
-    proceso u
-    para cada nodo v adyacente a u:
-          encolar v
+  desencolo un vertice u
+  proceso u
+  para cada nodo v adyacente a u:
+    si v no está visitado:
+      encolar v
+      marcar v como visitado       
 
 si quedan nodos sin visitar, tomo uno y vuelvo a empezar
           </code></pre>
@@ -310,7 +312,7 @@ si quedan nodos sin visitar, tomo uno y vuelvo a empezar
         <section>
           <h2> Sort Topológico </h2>
           <small> Utilizando un recorrido BFS </small>
-          <pre><code class="f24 markdown" >
+          <pre><code class="f24 bash" style="line-height: 1.1em" >
 1. Seleccionar un vértice v con grado de entrada cero
 2. Visitar v
 3. Eliminar v, junto con sus aristas salientes
@@ -329,7 +331,7 @@ si quedan nodos sin visitar, tomo uno y vuelvo a empezar
         <section>
           <h2> Sort Topológico 2 </h2>
           <small> Utilizando un recorrido BFS </small>          
-          <pre><code class="f24 markdown" >
+          <pre><code class="f24 bash" style="line-height: 1.1em">
 para cada nodo con grado de entrada 0:            
   Se realiza un recorrido DFS:
     Se van apilando los vertices en post orden,
