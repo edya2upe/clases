@@ -287,6 +287,86 @@
           </pre>
         </section>
 
+        <section data-transition="zoom">
+          <h2> Implementación 
+          <img class="full" src="img/clase2/arbol_modelo.jpg">
+        </section>
+
+        <section data-transition="zoom">
+          <img class="full" src="img/clase2/arbol_modelo1.jpg">
+        </section>
+
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/arbol_modelo2.jpg">
+        </section>
+
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/arbol_modelo3.jpg">
+        </section>
+
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/arbol_modelo4.jpg">
+        </section>
+
+        <section  data-transition="zoom">
+          <img class="full" src="img/clase2/arbol_modelo5.jpg">
+        </section>
+
+
+        <section>
+          <h1> Heap </h1>
+        </section>
+
+        <section>
+          <h3> Definición </h3>
+          <h4> Propiedad estructural:</h4> 
+          <p> Es un árbol binario completo </p>
+
+          <h4> Propiedad de orden: </h4>
+          <p style="text-align: left"> 
+            <b style:"> MinHeap </b> <br>
+            * El elemento mínimo está almacenado en la raíz
+            <br>
+            * El dato almacenado en cada nodo es menor o igual al de sus hijos
+          </p>
+          <p style="text-align: left"> 
+            <b> MaxHeap </b> <br>
+            Al reves
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Dado que un <b>árbol binario completo</b> es una estructura de datos regular, puede almacenarse en un arreglo, tal que:
+            <br>
+            <br>
+            La raíz está almacenada en la posición 1
+            <br>
+            Para un elemento que está en la posición i:
+            <br>
+            * El hijo izquierdo está en la posición 2*i
+            <br>
+            * El hijo derecho está en la posición 2*i + 1
+            <br>
+            * El padre está en la posición i/2
+          </p>
+        </section>
+
+        <section>
+          <h2> Insert </h2>
+          * se inserta al final
+          <br>
+          * hay que acomodar el arbol para que se conserve la propiedad de orden (percolate up)
+        </section>
+
+        <section>
+          <h2> Delete min/max</h2>
+          * se elimina la raíz (es siempre el min/max)
+          <br>
+          * se mueve el último elemento
+          <br>
+          * hay que acomodar el arbol para que se conserve la propiedad de orden (percolate down)
+        </section>
 
         <section>
           <h1> Tiempo de Ejecución </h1>
@@ -396,10 +476,13 @@
           <small> La forma más fácil de entenderlo es ponerle números a las constantes y a F(n) </small>
         </section>
 
+        <section>
+          <h2> T(N) de algoritmos iterativos </h2>
+        </section>
 
         <section>
           <section>
-            <h2> T(N) y Recursión </h2>
+            <h2> T(N) de algoritmos recursivos </h2>
           </section>
 
           <section>
@@ -414,11 +497,15 @@
 
           <section>
             <h3> Pasos </h3>
-            1. Identificar T(n) para el caso base
+            1. identificar la variable libre (N)
             <br>
-            2. Encontrar la expresión genéral de la recursión
+            2. Identificar T(n) para el caso base
             <br>
-            3. Reemplazar T(N) del caso base en la expresión general
+            3. Encontrar la expresión genéral de la recursión
+            <br>
+            4. Reemplazar T(N) del caso base en la expresión general\
+            <br>
+            5. partienddo de la definición de T(N), expresar el tiempo de ejecución usando big-o
           </section>
 
           <section>

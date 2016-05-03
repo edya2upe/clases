@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Estructuras de Datos y Algoritmos II - Clase 3</title>
+
+    <meta name="Estructuras de Datos y Algoritmos II - Clase 3">
+    <meta name="author" content="Fernando Martínez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- beige.css black.css blood.css league.css moon.css night.css serif.css simple.css sky.css solarized.css white.css -->
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/helpers.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h3>
+            <a href="http://edya2upe.github.io/"> Estructuras de Datos y Algoritmos II </a>
+          </h3>
+          <br><br>
+	  <h2> Clase 3 </h2>
+          <br><br>
+          <h4> Grafos </h4>
+          </h3>
+          <small style="float: left"><a href="?print-pdf">versión imprimible</a></small>          
+	</section>
+
+        <section>
+          <h1> Grafos </h1>
+          <small>
+           Es un conjunto de objetos llamados vértices o nodos unidos por enlaces llamados aristas o arcos, que permiten representar relaciones binarias entre elementos de un conjunto.
+          </small>
+          <p class="fragment">
+            un <b>Grafo(V,E)</b><br>
+            V es un conjunto de vértices o nodos, con una relación entre ellos;
+            E es un conjunto de pares (u,v) donde  u,v Є V llamados aristas o arcos.
+          </p>
+        </section>
+
+        <section>
+          <h1> Tipos de grafo </h1>
+          <span class="fragment">
+          <h4> Grafo dirigido </h4> <small> la relación sobre V no es simétrica. Arista -> par ordenado (u,v) </small>
+          <h4> Grafo no dirigido </h4> <small>la relación sobre V es simétrica.  Arista -> par no ordenado {u,v}, u,v Є V y u ≠ v</small>
+          <h4> Grafo pesado </h4> <small>(o con costos)<br> Las aristas tiene además un valor que representa su peso</small>
+          </span>
+        </section>
+
+        <section>
+          <h1>Terminología</h1>
+        </section>
+        
+        <section>
+          <h2> Grado </h2>
+          <h4>de un grafo </h4>
+          <small> máximo grado de sus vértices </small>
+            
+          <h4> de un vértice </h4>
+          <small> número de aristas que inciden el el vértice </small>
+            
+          <h4>¿En un grafo dirigido?</h4>
+          <small> 2 grados diferenciados:<br><br>
+            <ul>
+              <li> grado de entrada </li>
+              <li> grado de salida </li>
+            </ul>
+          </small>
+        </section>
+        
+        <section>
+          <h2> Nodo adyacencente </h2>
+          <p>
+            v es adyacente a u si existe una arista (u,v) Є E.
+            <br>            <br>
+            <small>
+              en un grafo <b>no dirigido</b>, {u,v} Є E incide en los nodos u y v.
+            </small>
+            <br>
+            <small>
+              en un grafo <b>dirigido</b>, (u,v) Є E incide en v, y parte de u.
+            </small>
+          </p>
+          <br>
+          <h2> Nodo alcanzable </h2>
+          <p> v es alcanzable desde u, si existe un <b> camino </b> de u a v. </p>
+        </section>
+        
+        <section>
+          <h2> Caminos </h2>
+          <p>
+            un camino de u a v, es una secuencia de vértices que comienza en u, termina en v y cada uno de los vértices intermedios es adyacente al anterior
+          </p>
+          <h4 class="fragment" data-fragment-index="1"> Longitud de un camino </h4>
+          <small class="fragment" data-fragment-index="1"> cantidad de aristas en el camino </small>
+          
+          <h4 class="fragment" data-fragment-index="2"> Camino Simple </h4>
+          <small class="fragment" data-fragment-index="2"> Camino  en el que todos sus vertices son distintos (excepto quizás el primero y el último)</small>
+          
+          <h4 class="fragment" data-fragment-index="3"> Ciclo </h4>
+          <small class="fragment" data-fragment-index="3"> Camino donde el primer y el último nodo son el mismo </small>
+          <br class="fragment" data-fragment-index="3">
+          <small class="fragment" data-fragment-index="3"> Si el camino es simple, el ciclo es simple </small>
+          
+          <h4 class="fragment" data-fragment-index="4"> Bucle </h4>
+          <small class="fragment" data-fragment-index="4"> Ciclo de longitud 1 </small>
+        </section>
+        <section>
+          <h2> Grafo Acíclico </h2>
+          <p> Grafo que no contiene ciclos </p>
+        </section>
+
+        <section>
+          <h2> Conexo </h2>
+          <p>
+            Un grafo es conexo si cualquier nodo es alcanzables desde cualquier otro
+            <br>
+            <small> es decir entre cada dos nodos hay un camino </small>
+          </p>
+
+          <span class="fragment">
+            <h4> Bosque </h4>
+            <small>Es un bosque es un grafo sin ciclos.</small>
+          </span>
+
+          <span class="fragment">
+            <h4> Árbol Libre </h4>
+            <small> Un árbol libre es un bosque conexo. </small>
+          </span>
+          <span class="fragment">
+            <h4> Árbol </h4>
+            <small> Es un árbol libre en el que un nodo se ha designado como raíz. </small>
+          </span>
+        </section>
+
+        <section>
+          <h2> implementaciones </h2>
+          <br>
+          <h4> Matriz de adyacencia </h4>
+          <h4> Lista de adyacentes </h4>
+        </section>
+        
+        <section>
+          <h2>matriz de adyacencia</h2>
+          <img class="full" src="img/clase5/matriz-de-adyacencia.png">
+        </section>
+
+        <section>
+          <h2>matriz de adyacencia</h2>
+          <h4> Complejidad espacial: </h4>
+          <p> O (|V| 2 ) </p>
+          <small>
+            Representación es útil para grafos con número
+            de vértices pequeño, o grafos densos
+            (|E|≈|V|×|V|)
+          </small>
+
+          <p>
+            Comprobar si una arista (u,v) pertenece a E => consultar posición A(u,v)
+          </p>
+          <h4>Complejidad Temporal </h4>
+          <small> T(|V|,|E|) = O(1)</small>
+          
+        </section>
+        
+        <section>
+          <h2>lista de adyacentes</h2>
+          <img  class="full" src="img/clase5/lista-de-adyacencias.png">
+        </section>
+
+        <section>
+          <h2>lista de adyacentes</h2>
+          <p>
+            Representación apropiada para grafos con |E| menor que |V| 2
+          </p>
+
+          <br>
+          
+          <h4> Complejidad Espacial </h4>
+          <small> O (|V|+|E|)  &nbsp; (sea dirigido o no) </small>
+
+          <br>
+          <small>
+            Si G es dirigido, la suma de las longitudes de las listas de adyacencia será |E|.
+            <br>
+            Si G es no dirigido, la suma de las longitudes de las listas de adyacencia será 2|E|.
+          </small>
+
+          <br><br>
+          
+          <p>
+            Desventaja: si se quiere comprobar si una arista (u,v) pertenece a E ⇒ buscar v en la lista de adyacencia de u.
+          </p>
+          <h4> Complejidad Temporal </h4>
+          <small> T (|V|,|E|) será O (Grado G) ⊆ O (|V|). </small>
+        </section>
+
+
+        <section>
+          <h2> Recorridos </h2>
+          <p class="fragment">
+            BFS <br> DFS
+          </p>
+        </section>
+
+        <section>
+          <img src="./img/clase3/knoisberg_bridges.png" style="width: 80%">
+        </section>
+
+        <section>
+          <h2> DFS </h2>
+          <p>
+            Depth First Search o Recorrido en Profundidad
+          </p>
+
+          <small> comparemos con el recorrido de árboles </small>
+          
+        </section>
+
+        <section>
+          <h2> DFS </h2>
+          <pre><code class="f24 markdown" >
+marcar todos los nodos como no visitados
+u = un vertice no visitado
+
+3. marcar u como vistado
+4. procesar u
+            
+5. para cada vertice v adyacente a u:
+6.     si v no está visitado: 
+7.         ejecutar recursivamente 3,4,5 para v
+
+8. Si quedaron nodos sin visitar:
+9.     repetir desde 2 con un nuevo vertice no visitado
+          </code></pre>
+        </section>
+
+        
+        <section>
+          <h2> BFS </h2>
+          <p>
+            Breadth First Search o Recorrido en Amplitud
+          </p>
+
+          <small> comparemos con el recorrido de árboles </small>
+          
+        </section>
+
+        <section>
+          <h2> BFS </h2>
+          <pre><code class="f24 bash" style="line-height: 1.1em">
+marcar todos los nodos como no visitados
+u = un vertice no visitado
+encolar u
+marcar u como vistado
+            
+mientras haya vertices:
+  desencolo un vertice u
+  proceso u
+  para cada nodo v adyacente a u:
+    si v no está visitado:
+      encolar v
+      marcar v como visitado       
+
+si quedan nodos sin visitar, tomo uno y vuelvo a empezar
+          </code></pre>
+        </section>
+
+        <section>
+          <h1> Algoritmos </h1>
+        </section>
+
+        <section>
+          <h3> Problema </h3>
+          <h2>El Camino Más Corto </h2>
+        </section>        
+        
+        <section>
+          <h2>  Grafo no dirigido sin pesos </h2>
+          <pre><code class="python f24" style="line-height: 1.05em">
+def min_path(G, s):
+  tabla = inicializar_tabla
+  c = Cola.new
+  c.push(s)
+  tabla[s]['conocido'] = true
+  while(!q.empty):
+    v = q.pop()
+    tabla[v]['conocido'] = true
+    for u in v.adyacentes():
+      if ! tabla[u]['conocido']:
+         tabla[u]['distancia']=tabla[u]['distancia'] + 1
+         tabla[u]['paso'] = v
+         q.push(v)
+         tabla[v]['conocido'] = true
+          </code></pre>
+        </section>        
+        
+        <section>
+          <h2> Dijkstra </h2>
+          <small> para grafos dirigidos con pesos postivos </small>
+        </section>
+
+        <section>
+          <h2> Dijkstra </h2>
+          <h4> Tabla </h4>
+          <small> para cada vertice almacena: </small>
+          <dl>
+            <dt>distancia:</dt><dd> distancia mínima desde el origen (inicialmente infinita para todos lo vértices excepto el origen con valor 0)</dd>
+            <dt>paso:</dt><dd> último vértice por donde pasó para llegar al vertice actual</dd>
+            <dt>conocido:</dt><dd> booleano que indica si el vertice ya está procesado (inicialmente todos en 0)</dd>
+          </dl>
+        </section>
+
+        
+        <section>
+          <h2> Dijkstra </h2>
+          <pre><code class="python f24" style="line-height: 1.05em">
+def dijkstra(G, s):
+  tabla = inicializar_tabla
+  tabla[s]['distancia'] = 0
+  for v in G.vertices():          
+    u = buscar_vertice_desconocido_con_menor_distancia
+    tabla[u]['conocido'] = true
+            
+    for w in u.adyacentes():
+      if !tabla[w]['conocido']:
+        if tabla[w]['dist'] > tabla[u]['dist'] + u.peso(w)
+            tabla[w]['dist'] = tabla[u]['dist'] + u.peso(w)
+            tabla[u]['paso'] = u
+          </code></pre>
+
+          <small>
+            La actualización de la distancia de los adyacentes w se realiza si:<br>
+            Se compara la distancia de s a w (sin pasar por v ) vs la Distancia de s a w, pasando por v
+          </small>
+        </section>
+        
+        <section>
+          <h2> Floyd </h2>
+          <small>
+            Calcula los caminos mínimos entre todos los pares de vertices
+          </small>
+        </section>
+        
+        <section>
+          <h2> Floyd </h2>
+          <p> utiliza 2 matrices (D y P) de V x V </p>
+          <small>
+            D : matriz de costos mínimos <br>
+            P : matriz de vertices intermedios <br>
+          </small>
+        </section>
+
+
+        <section>
+          <h2> Floyd </h2>
+          <pre><code class="python f24" style="line-height: 1.05em">
+def floyd(G, s):
+    D = inicializar_matriz_distancias
+    P = inicializar_matriz_pasos
+    for k in G.vertices().lenght():
+        for i in G.vertices().lenght():
+            for j in G.vertices().lenght():
+                if D[i,j] > D[i,k] + D[k,j]:
+                    D[i,j] = D[i,k] + D[k,j]
+                    P[i,j] = k
+          </code></pre>
+        </section>
+                
+        <section>
+          <h1>Fin</h1>
+          <small>
+            ¿Preguntas?
+          </small>
+        </section>
+        
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+         // Full list of configuration options available at:
+         // https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+           controls: true,
+           progress: true,
+           history: true,
+           center: true,
+
+           transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+           // Optional reveal.js plugins
+           dependencies: [
+	     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	     { src: 'plugin/zoom-js/zoom.js', async: true },
+	     { src: 'plugin/notes/notes.js', async: true },
+           ]
+         });
+
+        </script>
+  </body>
+</html>
